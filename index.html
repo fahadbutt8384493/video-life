@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            margin: 10px;
+        }
+        video {
+            margin-top: 20px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Video Editor</h1>
+    <input type="file" id="videoUpload" accept="video/*">
+    <button id="uploadButton">Show Video</button>
+    <video controls id="videoPlayer" style="display: none;"></video>
+
+    <script>
+        document.getElementById('videoUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const videoPlayer = document.getElementById('videoPlayer');
+
+            if (file) {
+                const url = URL.createObjectURL(file);
+                videoPlayer.src = url;
+                videoPlayer.style.display = 'block';
+            }
+        });
+
+        document.getElementById('uploadButton').addEventListener('click', function() {
+            alert('Upload functionality is not available in this example.');
+        });
+    </script>
+</body>
+</html>
